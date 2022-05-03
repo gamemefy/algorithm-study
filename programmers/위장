@@ -1,8 +1,7 @@
-def solution(clothes): 
-    # 경우의 수를 세는 것. 따라서 종류별로 의상 가짓수 + 1 (입는 경우와 입지 않는 경우를 더함)를 각각 곱해줌
-    answer = 1 # 곱해야 하므로 1을 기본값으로 둠. 아예 안 입는 경우를 1이라고 보는 것 
-    kinds = [kind for name, kind in clothes] # 옷 종류 세기
-    counts = [kinds.count(kind) for kind in set(kinds)] # 중복 허용하지 않고 옷 종류별로 개수 세기
-    for cnt in counts: # 종류별로 개수+1 씩 곱하는 부분
-        answer *= cnt+1
-    return answer - 1 # 아예 안 입는 경우 빼주기
+def solution(clothes):
+    answer = 1 # 경우의 수 곱셈 위해 1
+    kinds = [kind for name, kind in clothes] # 이름은 중복되지 않으므로 종류만 가져와서 사용
+    counts = [kinds.count(kind) for kind in set(kinds)] # 종류별로 세서 리스트에 저장. set을 이용해서 중복 불허용 부분 처리
+    for cnt in counts: 
+        answer *= cnt + 1 # 종류별 개수 + 1 (종류별 옷을 입는 경우의 수 + 안 입는 경우의 수)
+    return answer - 1 # 아무것도 입지 않는 경우를 빼줌
