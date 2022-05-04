@@ -3,8 +3,8 @@
 import math
 
 def is_prime(x):
-    for i in range(2, math.ceil(math.sqrt(x))):
-        if x % i == 0:
-            return False
-    return True   
+    for i in range(2, math.ceil(math.sqrt(x))): # x = 200이면 제곱근은 14.aaa 이므로 여기서 올림
+        if x % i == 0: 
+            return False # 나눠떨어지면 소수가 아님
+    return True # 나눠떨어지지 않았으므로 소수
     
